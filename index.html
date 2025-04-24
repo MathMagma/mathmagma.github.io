@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathMagma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #003366;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(to right, #ff6600, #ffcc00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 20px 0;
+            font-family: 'Special Gothic Expanded One', sans-serif;
+        }
+
+        #game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .game-box {
+            background-color: #1a1a1a;
+            border: 2px solid #ff6600;
+            border-radius: 10px;
+            width: 200px;
+            height: 250px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+
+        .game-box:hover {
+            transform: scale(1.05);
+        }
+
+        .game-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .game-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+    <header>MathMagma</header>
+
+    <div id="game-container"></div>
+
+    <script>
+        function addGame(imageUrl, gameName, gameLink) {
+            let container = document.getElementById('game-container');
+            let link = document.createElement('a');
+            link.href = gameLink;
+            link.target = '_blank';
+            let gameBox = document.createElement('div');
+            gameBox.classList.add('game-box');
+            let img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = gameName;
+            let text = document.createElement('div');
+            text.classList.add('game-text');
+            text.textContent = gameName;
+            gameBox.appendChild(img);
+            gameBox.appendChild(text);
+            link.appendChild(gameBox);
+            container.appendChild(link);
+        }
+
+        addGame('https://example.com/image.jpg', 'Puzzle Game', 'https://example.com/puzzle');
+        addGame('https://example.com/image2.jpg', 'Action Math', 'https://example.com/action');
+    </script>
+
+</body>
+</html>
